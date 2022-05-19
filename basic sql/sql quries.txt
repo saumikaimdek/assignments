@@ -1,7 +1,0 @@
-insert qury:- INSERT INTO `person_details` (`id`, `fName`, `lName`, `fatherNAme`) VALUES (NULL, 'ABC', 'PQR', 'XYZ');
-update qury:- UPDATE `person_details` SET `lName` = 'mehta' WHERE `person_details`.`id` = 2;
-alter qury:- ALTER TABLE `jobs` ADD `designation` VARCHAR(255) NOT NULL AFTER `job`;
-left join:- SELECT * FROM person_details AS pd LEFT JOIN jobs as jb ON pd.id = jb.fk_personid;
-right join:- SELECT * FROM person_details AS pd RIGHT JOIN jobs as jb ON pd.id = jb.fk_personid;
-SELECT pd.fName,pd.lName, jb.job FROM person_details AS pd RIGHT JOIN jobs as jb ON pd.id = jb.fk_personid;
-

@@ -1,0 +1,12 @@
+insert query:- INSERT INTO `person_details` (`id`, `fName`, `lName`, `fatherNAme`) VALUES (NULL, 'ABC', 'PQR', 'XYZ');
+update query:- UPDATE `person_details` SET `lName` = 'mehta' WHERE `person_details`.`id` = 2;
+alter query:- ALTER TABLE `jobs` ADD `designation` VARCHAR(255) NOT NULL AFTER `job`;
+delete query:- DELETE FROM `person_details`WHERE `person_details`.`id` = 2;
+left join:- SELECT * FROM person_details AS pd LEFT JOIN jobs as jb ON pd.id = jb.fk_personid;
+right join:- SELECT * FROM person_details AS pd RIGHT JOIN jobs as jb ON pd.id = jb.fk_personid;
+SELECT pd.fName,pd.lName, jb.job FROM person_details AS pd RIGHT JOIN jobs as jb ON pd.id = jb.fk_personid;
+like query:-SELECT * FROM `person_details` WHERE firstName LIKE 'abc%';
+delete table query:- drop table `person_details`;
+empty table:- truncate table `person_details`;
+count query:- SELECT COUNT (fName) FROM person_details;
+
