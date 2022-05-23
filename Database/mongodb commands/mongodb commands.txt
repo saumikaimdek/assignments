@@ -1,0 +1,122 @@
+//View all databases
+ 
+show dbs
+
+//Create a new or switch databases 
+
+use school
+
+//View current Database
+
+db
+
+//Delete Database 
+
+db.dropDatabase()
+
+//Create a collection named 'students'
+
+db.createCollection ('students')
+
+//Drop a collection named 'students'
+
+db.students.drop()
+
+//Show all Rows in a Collection 
+
+db.students.find()
+
+//Show all Rows in a Collection (Prettified)
+
+db.students.find().pretty()
+
+//Find the first row matching the object
+
+db.students.findOne({name: 'mahesh'})
+
+//Insert One Row
+
+db.students.insert({
+    'name': 'mahesh',
+    'age': 15,
+    'class':10
+ })
+
+//Insert many Rows
+
+db.students.insertMany([{
+    'name': 'mahesh',
+    'age': 14,
+    'class':10
+ }, 
+    {
+    'name': 'suresh',
+    'age': 15,
+    'class':10
+ },
+    {
+    'name': 'ramesh',
+    'age': 16,
+    'class':10
+ }])
+
+ //Search in a MongoDb Database
+
+ db.students.find({lang:'Python'})
+
+ //Limit the number of rows in output
+
+ db.students.find().limit(2)
+
+ //Count the number of rows in the output
+
+db.students.find().count()
+
+//Update a row
+
+db.students.update({name: 'Shubham'},
+{'name': 'jacky',
+    'age': 16,
+    'class':10
+}, {upsert: true})
+ 
+//Mongodb Increment Operator
+
+db.students.update({name: 'jacky'},
+{$inc:{
+    age: 16
+}})
+
+//Mongodb Rename Operator
+
+db.students.update(
+{$rename:{
+    age: 'ageofstudent'
+}})
+
+//sort collection
+
+ db.students.find().sort({age:1}).pretty()
+ 
+
+ //find one row
+ db.students.findone({name:'mahesh'})
+
+ //Delete Row 
+
+ db.students.remove({name: 'mahesh'})
+
+ //Less than/Greater than/ Less than or Eq/Greater than or Eq
+
+ db.students.find({age: {$lt: 16}}) 
+ db.students.find({age: {$lte: 16}})
+ db.students.find({age: {$gt: 16}})
+ db.students.find({age: {$gte: 16}})
+
+ //Joins query clauses with a logical AND returns all documents that match the conditions of both clauses.
+
+ db.students.find( {
+   $and: [
+      { age: { $ne: 15 } }     
+   ]
+} )

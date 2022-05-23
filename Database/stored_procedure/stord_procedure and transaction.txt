@@ -1,0 +1,18 @@
+// stored procedure
+
+DELIMITER &&
+CREATE  PROCEDURE Getpersondetails()
+BEGIN
+SELECT * FROM person_details;
+END &&
+DELIMITER ;
+
+//transaction
+
+//create
+create database transactions;
+
+//usereansaction
+use transactions;
+
+insert into person_details values (null,'mahesh','patel','ramesh'),(null,'raj','jalu','keshavbhai'),(null,'piyush','patel','pankaj'),(null,'kirti','padhiyar','k');
