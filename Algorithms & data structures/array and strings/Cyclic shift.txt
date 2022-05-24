@@ -1,0 +1,39 @@
+import java.util.*;
+import java.io.*;
+
+class CyclicCalss {
+    public static void main(String args[] ) throws Exception {
+      
+      Scanner sc = new Scanner(System.in);
+      int T = sc.nextInt();
+       while(T-- >0){
+           int n; 
+           int k;
+           int m=0;
+            n = sc.nextInt(); 
+            k = sc.nextInt();
+            String A = sc.next();
+            String maximum = "";
+            String integer = A;
+            int time = -1;
+            
+             for(int i=0;i < n;i++){     
+             
+                if(maximum.compareTo(integer) < 0){ 
+                    maximum = integer;    
+                    m = i;      
+                }else if(maximum.compareTo(integer) == 0){  
+                    time = i - m;     
+                    break;      
+                }
+                integer = integer.substring(1,integer.length()) + integer.substring(0,1);   
+            }
+            if(time == -1){
+                System.out.println(m +(k - 1L)* n);
+            }else{
+                System.out.println(m +(k - 1L)* time); 
+            }
+            
+        }
+    }
+}
